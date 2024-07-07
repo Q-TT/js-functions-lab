@@ -52,13 +52,13 @@ Complete the exercise in the space below:
 */
 const isCharAVowel= (x) => {
     if (x==="a"||x==="e"||x==="i"||x==="o"||x==="u"){
+        // what if the list we need to chek is too long?
         return true
     } else {
         return false
     }
 }
 console.log('Exercise 3 Result:', isCharAVowel("a"));
-
 
 /*
 Exercise 4: generateEmail()
@@ -106,8 +106,9 @@ Example: maxOfThree(17, 4, 9) should return 17.
 Complete the exercise in the space below:
 */
 
-
-
+const maxOfThree = (x,y,z)=> {
+    return Math.max(x,y,z)
+}
 console.log('Exercise 6 Result:', maxOfThree(5, 10, 8));
 
 
