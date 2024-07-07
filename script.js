@@ -231,9 +231,13 @@ Example: createUsername('Samantha', 'Green') should return 'SamGre12'.
 
 Complete the exercise in the space below:
 */
-
-
-
+const createUsername=(x,y) => {
+    let firstNameDic = x.split("")
+    let lastNameDic = y.split("")
+    let nameCount = firstNameDic.length + lastNameDic.length
+    return `${firstNameDic[0]}${firstNameDic[1]}${firstNameDic[2]}${lastNameDic[0]}${lastNameDic[1]}${lastNameDic[2]}${nameCount}`
+}
+// any easy way to populat the 0-2 item??
 console.log('Exercise 11 Result:', createUsername("Samantha", "Green"));
 
 /*
