@@ -127,7 +127,6 @@ Complete the exercise in the space below:
 const calculateTip = (x,y) => {
     return x*(y*0.01)
 }
-
 console.log('Exercise 7 Result:', calculateTip(50, 20));
 
 
@@ -141,12 +140,18 @@ Convert the temperature to the other scale.
 
 Example: convertTemperature(32, 'C') should return 89.6 (Fahrenheit).
 Example: convertTemperature(32, 'F') should return 0 (Celsius).
+(0°C × 9/5) + 32 = 32°F
+(32°F − 32) × 5/9 = 0°C
 
 Complete the exercise in the space below:
 */
-
-
-
+const convertTemperature = (x,y) =>{
+    if (y==="C") {
+        return `${x*9/5 + 32} (Fahrenheit)`
+    } else if (y==="F") {
+        return `${(x-32)*9/5} (Celsius)`
+    }
+}
 console.log('Exercise 8 Result:', convertTemperature(32, "C"));
 
 
