@@ -170,7 +170,15 @@ Example: basicCalculator(10, 5, 'subtract') should return 5.
 
 Complete the exercise in the space below:
 */
-
-
-
+const basicCalculator=(x,y,z) => {
+    if (z==="add") {
+        return x+y
+    } else if (z==="subtract") {
+        return x-y
+    } else if (z==="multiply") {
+        return x*y
+    } else if (z==="divide") {
+        return x/y
+    }
+}
 console.log('Exercise 9 Result:', basicCalculator(10, 5, "subtract"));
