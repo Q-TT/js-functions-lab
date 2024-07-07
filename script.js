@@ -50,7 +50,13 @@ Example: isCharAVowel('a') should return true.
 
 Complete the exercise in the space below:
 */
-
+const isCharAVowel= (x) => {
+    if (x==="a"||x==="e"||x==="i"||x==="o"||x==="u"){
+        return true
+    } else {
+        return false
+    }
+}
 console.log('Exercise 3 Result:', isCharAVowel("a"));
 
 
