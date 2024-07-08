@@ -231,13 +231,21 @@ Example: createUsername('Samantha', 'Green') should return 'SamGre12'.
 
 Complete the exercise in the space below:
 */
-const createUsername=(x,y) => {
+const createUsername = (x,y) => {
     let firstNameDic = x.split("")
     let lastNameDic = y.split("")
     let nameCount = firstNameDic.length + lastNameDic.length
-    return `${firstNameDic[0]}${firstNameDic[1]}${firstNameDic[2]}${lastNameDic[0]}${lastNameDic[1]}${lastNameDic[2]}${nameCount}`
+    // return `${firstNameDic[0]}${firstNameDic[1]}${firstNameDic[2]}${lastNameDic[0]}${lastNameDic[1]}${lastNameDic[2]}${nameCount}`
+    return `${firstNameDic.slice(0,3).join("")}${lastNameDic.slice(0,3).join("")}${nameCount}`
 }
 // any easy way to populat the 0-2 item??
+// what if the names are less than 3 letters???? 
+// A: need control flow  
+// if (x.length<3) {
+//         return x.slice(0,2).join("")
+//     }
+// .join return a string and "concatenating them"
+
 console.log('Exercise 11 Result:', createUsername("Samantha", "Green"));
 
 /*
@@ -248,9 +256,100 @@ This function should return the count of arguments passed to it when called.
 
 Complete the exercise in the space below:
 */
-
-
-
+function numArgs() {
+    // const args= Array.from(arguments)
+    return arguments.length
+}
 console.log('Exercise 12 Result:', numArgs(1, 2, 3, 4));
 
 
+
+// __________________________________________________________________________________________________
+// !!!!! BELOW IS CHALLENGE CONTENT FROM KYLE!!!!
+
+/*
+Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+
+Rules for a smiling face:
+
+Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+Every smiling face must have a smiling mouth that should be marked with either ) or D
+No additional characters are allowed except for those mentioned.
+
+Valid smiley face examples: :) :D ;-D :~)
+Invalid smiley faces: ;( :> :} :]
+
+Example
+countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+Note
+In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
+
+*/
+
+function countSmileys(arr) {
+    let counter=0
+    for (i=0; i<arr.length; i++) {
+        if (arr[i].length===2) {
+            if ((arr[i].charAt(0)===":" || arr[i].charAt(0)===";") && (arr[i].charAt(1)===")"||arr[i].charAt(1)==="D")){
+                counter+=1
+            }
+        } 
+        if (arr[i].length===3) {
+            if ((arr[i].charAt(0)===":" || arr[i].charAt(0)===";") &&(arr[i].charAt(1)==="-" || arr[i].charAt(1)==="~") &&(arr[i].charAt(2)===")"||arr[i].charAt(2)==="D")){
+                counter+=1
+            }
+        }
+        if (arr[i].length===0) counter+=0
+    }
+    return counter
+}
+console.log(countSmileys([':)', ';(', ';}', ':-D']));       // should return 2;
+console.log(countSmileys([';D', ':-(', ':-)', ';~)']));     // should return 3;
+console.log(countSmileys([';]', ':[', ';*', ':$', ';-D'])); // should return 1;
+
+// using regex to write the code
+
+// function countSmileys (arr) {
+
+//     // create a regex
+//     // * (?:...) says to match everything enclosed
+//     // * fist non-capture group (?::|;) we can match : | ;
+//     // * second non-capture group (?:~|-) we can match ~ | -
+//     // * last non-capture group (?:\)|D) we need to escape with the \ to get to the ) character as the first option | D
+
+//     let regex = /((?::|;)(?:~|-)(?:\)|D))|((?::|;)(?:\)|D))/g
+//     // create a variable for matching smileys
+//     let count = arr.join("").match(regex)
+
+//     console.log(count)
+//     // ternary operator
+//     return count ? count.length : 0 
+
+// }
+
+// console.log(countSmileys([':)', ';(', ';}', ':-D']));       // should return 2;
+// console.log(countSmileys([';D', ':-(', ':-)', ';~)']));     // should return 3;
+// console.log(countSmileys([';]', ':[', ';*', ':$', ';-D'])); // should return 1;
+
+
+
+/*
+Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+
+The binary number returned should be a string.
+
+Examples:(Input1, Input2 --> Output (explanation)))
+
+1, 1 --> "10" (1 + 1 = 2 in decimal or 10 in binary)
+5, 9 --> "1110" (5 + 9 = 14 in decimal or 1110 in binary)
+
+*/
+function addBinary(a, b) {
+    let binary = a + b
+    return binary.toString(2)
+}
+console.log(addBinary(1,1))
+console.log(addBinary(5,9))
